@@ -1,0 +1,6 @@
+Revision history for Perl extension MySQL::RunSQL.
+
+0.01  Wed Sep 12 10:16:45 2012
+	- original version; created by h2xs 1.23 with options
+		-AX MySQL::RunSQL
+
