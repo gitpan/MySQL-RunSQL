@@ -19,7 +19,7 @@ use vars					qw($VERSION @ISA);
 require Exporter;
 
 @ISA = qw/Exporter/;
-$VERSION = '1.1';
+$VERSION = '1.2';
 
 
 =head1 SYNOPSIS
@@ -115,7 +115,7 @@ options:
 
 
 sub new {
-	my ($class) = @_;
+	my $class = shift;
 	
 	#Verify parameters
 	my %args = validate (
@@ -129,6 +129,7 @@ sub new {
 			port	=> { default => 3306 }
 		}
 	);
+	
 	
 	my $self = {};
 
