@@ -7,8 +7,9 @@ results to STDOUT or XLSX file.
 
 =cut
 
+use v5.10;
 use warnings;
-use Modern::Perl			"2011";
+use Modern::Perl;
 use DBI;
 use Params::Validate;
 use Excel::Writer::XLSX;
@@ -18,7 +19,7 @@ use vars					qw($VERSION @ISA);
 require Exporter;
 
 @ISA = qw/Exporter/;
-$VERSION = '1.0';
+$VERSION = '1.1';
 
 
 =head1 SYNOPSIS
@@ -114,7 +115,7 @@ options:
 
 
 sub new {
-	my ($class) = shift;
+	my ($class) = @_;
 	
 	#Verify parameters
 	my %args = validate (
@@ -300,7 +301,7 @@ sub runsql_report_fromfile {
 
 # Clean up.. if we have a connection to the database - disconnect! :)
 sub DESTROY {
-	my ($self) = shift;
+	my ($self) = @_;
 	
 	if (exists $self->{'dbh'}) { $self->{'dbh'}->disconnect; }
 	
@@ -320,7 +321,7 @@ at your option, any later version of Perl 5 you may have available.
 
 =head1 AUTHOR
 
-Melissa A. VandenBrink, C<< <geeklady@gmail.com> >>
+Melissa A. VandenBrink, C<< <geeklady@cpan.org> >>
 
 =head1 SEE ALSO
 
